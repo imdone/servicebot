@@ -4,9 +4,9 @@ let EventLogs = require('../models/event-log');
 let async = require("async");
 let store = require("../config/redux/store");
 
-//TODO : Strip password field from getters
-//todo - entity posting should have correct error handling, response should tell user what is wrong like if missing column
-//todo - generify the method we use to "find all" and reduce code duplication in the getters
+//TODO : Strip password field from getters id:19
+// todo - entity posting should have correct error handling, response should tell user what is wrong like if missing column
+// todo - generify the method we use to "find all" and reduce code duplication in the getters
 module.exports = function (router, model, resourceName, userCorrelator) {
     let references = model.references || [];
 
@@ -111,7 +111,7 @@ module.exports = function (router, model, resourceName, userCorrelator) {
         }
     });
 
-    //TODO Working for single update, need batch update method to work for children
+    //TODO Working for single update, need batch update method to work for children id:13
     router.put(`/${resourceName}/:id(\\d+)`, validate(model), auth(null, model, userCorrelator),async function (req, res, next) {
         try {
             let entity = res.locals.valid_object;

@@ -116,8 +116,8 @@ class ServiceInstanceFormEdit extends React.Component {
             // const references = this.state.template.references.service_template_properties.length > 0 ? this.state.template.references.service_template_properties : false;
 
 
-            //TODO: Add validation functions and pass into DataForm as props
-            //** Stripe limits the trial days to 2 years
+            //TODO: Add validation functions and pass into DataForm as props id:77
+            // ** Stripe limits the trial days to 2 years
             const myValidators = this.getValidators();
 
             return (

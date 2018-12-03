@@ -136,7 +136,7 @@ let createWithStripe = function (options, callback) {
                 });
             })
         } else {
-            //TODO: better error handling
+            //TODO: better error handling id:63
             console.log(`ERROR: ${err}`, null);
         }
     });
@@ -361,12 +361,12 @@ User.prototype.unsuspend = function (callback) {
     }
 };
 
-//TODO: Implement User.prototype.update override once the above create is simplified. Implement when doing user setting page.
+//TODO: Implement User.prototype.update override once the above create is simplified. Implement when doing user setting page. id:42
 
 /**
  * Override of the "findOnRelative" function to filter out passwords for users.
  */
-//TODO maybe have to override all FInds for user if we never want password. (Maybe use a solution similar to next() for filtering)
+//TODO maybe have to override all FInds for user if we never want password. (Maybe use a solution similar to next() for filtering) id:8
 User.findOnRelative = function (key, value, callback) {
     User.findAll(key, value, function (result) {
         let noPassword = result.map(function (entity) {

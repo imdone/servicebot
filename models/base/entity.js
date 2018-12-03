@@ -4,9 +4,9 @@ let Promise = require("bluebird");
 let promiseProxy = require("../../lib/promiseProxy");
 var whereFilter = require('knex-filter-loopback').whereFilter;
 
-//TODO - BIG TASK - relationship system, allow to define relationships in model and relationship tables - would autodelete rel rows
-//TODO - Big task - full promise support..........
-//todo - big task - refactor ORM completely....
+//TODO - BIG TASK - relationship system, allow to define relationships in model and relationship tables - would autodelete rel rows id:6
+//TODO - Big task - full promise support.......... id:22
+// todo - big task - refactor ORM completely....
 /**
  *
  * @param tableName - name of table the entity belongs to
@@ -223,7 +223,7 @@ module.exports = function (tableName, references = [], primaryKey = 'id', databa
         }
     };
 
-    //TODO: think about no result case, not too happy how handling it now.
+    //TODO: think about no result case, not too happy how handling it now. id:16
 
     //Also want to think about having generic find method all models would use
     Entity.findAll = function (key = true, value = true, callback) {
@@ -464,7 +464,7 @@ module.exports = function (tableName, references = [], primaryKey = 'id', databa
                 })
         };
 
-    //TODO this batch update work
+    //TODO this batch update work id:62
     let batchUpdate = function (dataArray, callback) {
 
         Entity.database(Entity.table).columnInfo()

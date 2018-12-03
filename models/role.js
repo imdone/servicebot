@@ -100,7 +100,7 @@ Role.prototype.hasPermission = function (permission, callback) {
         let roleId = this.get('id');
         Permission.findOne("permission_name", permission, function (permissionEntity) {
             //console.log(permissionEntity);
-            //TODO FIX THIS SHIT, it's broken if you pass a permission not in db
+            //TODO FIX THIS SHIT, it's broken if you pass a permission not in db id:7
             if(permissionEntity.data == null) {
                 return callback(false);
 

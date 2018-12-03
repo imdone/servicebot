@@ -83,8 +83,8 @@ class ServiceInstancePaymentPlan extends React.Component {
         }
     }
 
-    //TODO: change this to property widget type
-    //Get application launch action based on URL custom variable.
+    //TODO: change this to property widget type id:96
+    // Get application launch action based on URL custom variable.
     getLinkActionButton(){
         let self = this;
         let instance = self.props.service;

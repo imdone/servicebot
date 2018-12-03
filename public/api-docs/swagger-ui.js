@@ -1210,7 +1210,7 @@ window.Docs = {
             }
             // 3. Let A be a new (possibly empty) internal list of all of the
             //   argument values provided after thisArg (arg1, arg2 etc), in order.
-            // XXX slicedArgs will stand in for "A" if used
+            // XXX slicedArgs will stand in for "A" if used id:64
             var args = array_slice.call(arguments, 1); // for normal call
             // 4. Let F be a new native ECMAScript object.
             // 11. Set the [[Prototype]] internal property of F to the standard
@@ -1296,7 +1296,7 @@ window.Docs = {
                 array_push.call(boundArgs, '$' + i);
             }
 
-            // XXX Build a dynamic function with desired amount of arguments is the only
+            // XXX Build a dynamic function with desired amount of arguments is the only id:43
             // way to set the length property of a function.
             // In environments where Content Security Policies enabled (Chrome extensions,
             // for ex.) all use of eval or Function costructor throws an exception.
@@ -1309,12 +1309,12 @@ window.Docs = {
                 bound.prototype = new Empty();
                 // Clean up dangling references.
                 Empty.prototype = null;
-            }
+// //             }
 
-            // TODO
+            // TODO  id:9
             // 18. Set the [[Extensible]] internal property of F to true.
 
-            // TODO
+            // TODO  id:25
             // 19. Let thrower be the [[ThrowTypeError]] function Object (13.2.3).
             // 20. Call the [[DefineOwnProperty]] internal method of F with
             //   arguments "caller", PropertyDescriptor {[[Get]]: thrower, [[Set]]:
@@ -1325,15 +1325,16 @@ window.Docs = {
             //   [[Set]]: thrower, [[Enumerable]]: false, [[Configurable]]: false},
             //   and false.
 
-            // TODO
-            // NOTE Function objects created using Function.prototype.bind do not
-            // have a prototype property or the [[Code]], [[FormalParameters]], and
-            // [[Scope]] internal properties.
-            // XXX can't delete prototype in pure-js.
+            // TODO  id:80
+            // NOTE Function objects created using Function.prototype.bind do not //   and false.
+id:65
+                                                                                                                                  //   and false.
+            // XXX can't delete prototype in pure-js. id:44
 
             // 22. Return F.
             return bound;
-        }
+ // [[Scope]] internal properties.
+       }
     });
 
     // _Please note: Shortcuts are defined after `Function.prototype.bind` as we
@@ -2385,9 +2386,9 @@ window.Docs = {
             //  toISO with O as the this value and an empty argument list.
             return toISO.call(O);
 
-            // NOTE 1 The argument is ignored.
+            // NOTE 1 The argument is ignored. id:10
 
-            // NOTE 2 The toJSON function is intentionally generic; it does not
+            // NOTE 2 The toJSON function is intentionally generic; it does not id:26
             // require that its this value be a Date object. Therefore, it can be
             // transferred to other kinds of objects for use as a method. However,
             // it does require that any such object have a toISOString method. An
@@ -2404,7 +2405,8 @@ window.Docs = {
     var acceptsInvalidDates = !isNaN(Date.parse('2012-04-04T24:00:00.500Z')) || !isNaN(Date.parse('2012-11-31T23:59:59.000Z')) || !isNaN(Date.parse('2012-12-31T23:59:60.000Z'));
     var doesNotParseY2KNewYear = isNaN(Date.parse('2000-01-01T00:00:00.000Z'));
     if (doesNotParseY2KNewYear || acceptsInvalidDates || !supportsExtendedYears) {
-        // XXX global assignment won't work in embeddings that use
+        // XXX gl// an alternate object for the context.
+obal assignment won't work in embeddings that use id:81
         // an alternate object for the context.
         /* global Date: true */
         /* eslint-disable no-undef */
@@ -5452,7 +5454,7 @@ Resolver.prototype.resolveAllOf = function(spec, obj, depth) {
                 output['x-resolved-from'].push(source);
               }
               else {
-                // TODO: need to merge this property
+                // TODO: need to merge this property id:45
                 // console.log('what to do with ' + part)
               }
             }
@@ -5698,7 +5700,7 @@ module.exports.schemaToHTML =function (name, schema, models, modelPropertyMacro)
 
 
 
-  // Generate current HTML
+  // Generate current TODO  id:66
   var html = processModel(schema, name);
 
   // Generate references HTML
@@ -6265,7 +6267,7 @@ SwaggerSpecConverter.prototype.responseMessages = function(operation, existingOp
   // build default response from the operation (1.x)
   var defaultResponse = {};
   this.dataType(existingOperation, defaultResponse);
-  // TODO: look into the real problem of rendering responses in swagger-ui
+  // TODO: look into the real problem of rendering responses in swagger-ui id:11
   // ....should reponseType have an implicit schema?
   if(!defaultResponse.schema && defaultResponse.type) {
     defaultResponse = {schema: defaultResponse};
@@ -6301,7 +6303,7 @@ SwaggerSpecConverter.prototype.responseMessages = function(operation, existingOp
 };
 
 SwaggerSpecConverter.prototype.authorizations = function(obj) {
-  // TODO
+  // TODO  id:27
   if(!_.isObject(obj)) {
     return;
   }
@@ -7378,8 +7380,8 @@ Operation.prototype.getBody = function (headers, args, opts) {
                 for(var v in value) {
                   bodyParam.append(key, value[v]);
                 }
-              }
-              else {
+//               }
+//               else {
                 bodyParam.append(key, this.encodeQueryCollection(param.collectionFormat, key, value).split('=').slice(1).join('='));
               }
             }
@@ -7814,8 +7816,8 @@ Operation.prototype.asCurl = function (args1, args2) {
                 if(paramValue.name) {
                   body += '-F ' + parameter.name + '=@"' + paramValue.name + '" ';
                 }
-              }
-              else {
+//               }
+//               else {
                 if (Array.isArray(paramValue)) {
                   if(parameter.collectionFormat === 'multi') {
                     for(var v in paramValue) {
@@ -7946,7 +7948,7 @@ Operation.prototype.encodeQueryParam = function (arg, maskPasswords) {
 };
 
 /**
- * TODO revisit, might not want to leave '/'
+ * TODO revisit, might not want to leave '/' id:82
  **/
 Operation.prototype.encodePathParam = function (pathParam, maskPasswords) {
   return encodeURIComponent(pathParam, maskPasswords);
@@ -8030,7 +8032,7 @@ process.binding = function (name) {
     throw new Error('process.binding is not supported');
 };
 
-// TODO(shtylman)
+// TODO (shtylman) id:67
 process.cwd = function () { return '/' };
 process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
@@ -11655,7 +11657,7 @@ function readDoubleQuotedScalar(state, nodeIndent) {
       if (is_EOL(ch)) {
         skipSeparationSpace(state, false, nodeIndent);
 
-        // TODO: rework to inline fn with no type cast?
+        // TODO: rework to inline fn with no type cast? id:46
       } else if (ch < 256 && simpleEscapeCheck[ch]) {
         state.result += simpleEscapeMap[ch];
         state.position++;
@@ -12841,7 +12843,8 @@ module.exports = Schema;
 // Standard YAML's Core schema.
 // http://www.yaml.org/spec/1.2/spec.html#id2804923
 //
-// NOTE: JS-YAML does not support schema-specific tag resolution restrictions.
+// NOTE: JS-YAML does not suppo// 
+rt schema-specific tag resolution restrictions. id:12
 // So, Core schema has no distinctions from JSON schema is JS-YAML.
 
 
@@ -12937,9 +12940,9 @@ module.exports = new Schema({
 // Standard YAML's JSON schema.
 // http://www.yaml.org/spec/1.2/spec.html#id2803231
 //
-// NOTE: JS-YAML does not support schema-specific tag resolution restrictions.
-// So, this schema is not such strict as defined in the YAML specification.
-// It allows numbers in binary notaion, use `Null` and `NULL` as `null`, etc.
+// NOTE: JS-YAML does not support schema-specific tag resolution restrictions. id:28
+ So, this schema is not such strict as defined in the YAML specification.
+        //  It allows numbers in binary notaion, use `Null` and `NULL` as `null`, etc.
 
 
 'use strict';
@@ -13005,7 +13008,9 @@ function Type(tag, options) {
     }
   });
 
-  // TODO: Add tag format check.
+  // TODO: Add tag format c//     }
+//   });
+heck. id:83
   this.tag          = tag;
   this.kind         = options['kind']         || null;
   this.resolve      = options['resolve']      || function () { return true; };
@@ -18491,7 +18496,7 @@ function isObject(value) {
 
 // generator related shims
 
-// FIXME: Remove this function once ES6 generators are in SpiderMonkey.
+// FIXME: Remove this function once ES6 generators are in SpiderMonkey. id:68
 function isStopIteration(exception) {
     return (
         object_toString(exception) === "[object StopIteration]" ||
@@ -18499,12 +18504,12 @@ function isStopIteration(exception) {
     );
 }
 
-// FIXME: Remove this helper and Q.return once ES6 generators are in
+// FIXME: Remove this helper and Q.return once ES6 generators are in id:47
 // SpiderMonkey.
 var QReturnValue;
 if (typeof ReturnValue !== "undefined") {
     QReturnValue = ReturnValue;
-} else {
+// // } else {
     QReturnValue = function (value) {
         this.value = value;
     };
@@ -18702,7 +18707,7 @@ function defer() {
         }
     };
 
-    // XXX deprecated
+    // XXX deprecated id:86
     promise.valueOf = function () {
         if (messages) {
             return promise;
@@ -18712,7 +18717,7 @@ function defer() {
             resolvedPromise = nearerValue; // shorten chain
         }
         return nearerValue;
-    };
+
 
     promise.inspect = function () {
         if (!resolvedPromise) {
@@ -18725,7 +18730,15 @@ function defer() {
         try {
             throw new Error();
         } catch (e) {
-            // NOTE: don't try to use `Error.captureStackTrace` or transfer the
+            // NOTE: don't try to use `Error.captureStackTrace` or // accessor around; that causes memory leaks as per GH-111. Just
+// reify the stack trace as a string ASAP.
+// 
+// At the same time, cut off the first line; it's always just
+// "[object Promise]\n", as per the `toString`.
+//             promise.stack = e.stack.substring(e.stack.indexOf("\n") + 1);
+//         }
+//     }
+transfer the id:29
             // accessor around; that causes memory leaks as per GH-111. Just
             // reify the stack trace as a string ASAP.
             //
@@ -18735,9 +18748,8 @@ function defer() {
         }
     }
 
-    // NOTE: we do the checks for `resolvedPromise` in each method, instead of
-    // consolidating them into `become`, since otherwise we'd create new
-    // promises with the lines `become(whatever(value))`. See e.g. GH-252.
+    // NOTE: we do the checks for `resolvedPromise` in each method, instead of id:84
+            //     }
 
     function become(newPromise) {
         resolvedPromise = newPromise;
@@ -18835,7 +18847,7 @@ promise.all = all; // ES6
 promise.reject = reject; // ES6
 promise.resolve = Q; // ES6
 
-// XXX experimental.  This method is a way to denote that a local value is
+// XXX experimental. This method is a way to denote that a local value is id:69
 // serializable and should be immediately dispatched to a remote upon request,
 // instead of passing a reference.
 Q.passByCopy = function (object) {
@@ -18866,7 +18878,7 @@ Q.join = function (x, y) {
 Promise.prototype.join = function (that) {
     return Q([this, that]).spread(function (x, y) {
         if (x === y) {
-            // TODO: "===" should be Object.is or equiv
+            // TODO: "===" should be Object.is or equiv id:48
             return x;
         } else {
             throw new Error("Can't join: not the same: " + x + " " + y);
@@ -18943,7 +18955,7 @@ function Promise(descriptor, fallback, inspect) {
 
     promise.inspect = inspect;
 
-    // XXX deprecated `valueOf` and `exception` support
+    // XXX deprecated `valueOf` and `exception` support id:87
     if (inspect) {
         var inspected = inspect();
         if (inspected.state === "rejected") {
@@ -19109,9 +19121,10 @@ Q.thenReject = function (promise, reason) {
  * @returns most resolved (nearest) form of the object
  */
 
-// XXX should we re-do this?
+// XXX should we re-do this? id:30
 Q.nearer = nearer;
-function nearer(value) {
+function * @returns most resolved (nearest) form of the object
+nearer(value) {
     if (isPromise(value)) {
         var inspected = value.inspect();
         if (inspected.state === "fulfilled") {
@@ -19430,7 +19443,7 @@ function async(makeGenerator) {
                 }
             } else {
                 // SpiderMonkey Generators
-                // FIXME: Remove this case when SM does ES6 generators.
+                // FIXME: Remove this case when SM does ES6 generators. id:85
                 try {
                     result = generator[verb](arg);
                 } catch (exception) {
@@ -19462,7 +19475,8 @@ function spawn(makeGenerator) {
     Q.done(Q.async(makeGenerator)());
 }
 
-// FIXME: Remove this interface once ES6 generators are in SpiderMonkey.
+// FIXME: Remove this interface o// }
+nce ES6 generators are in SpiderMonkey. id:70
 /**
  * Throws a ReturnValue exception to stop an asynchronous generator.
  *
@@ -19479,7 +19493,7 @@ function spawn(makeGenerator) {
  *      var foo = yield getFooPromise();
  *      var bar = yield getBarPromise();
  *      return foo + bar;
- * })
+ * // })
  * // Older SpiderMonkey style
  * Q.async(function () {
  *      var foo = yield getFooPromise();
@@ -19572,15 +19586,18 @@ Promise.prototype.set = function (key, value) {
  * @param name      name of property to delete
  * @return promise for the return value
  */
-Q.del = // XXX legacy
-Q["delete"] = function (object, key) {
+Q.del = // XXX legacy id:49
+Q["delete"] = func// Q["delete"] = function (object, key) {
+//     return Q(object).dispatch("delete", [key]);
+// };
+tion (object, key) {
     return Q(object).dispatch("delete", [key]);
 };
 
-Promise.prototype.del = // XXX legacy
+Promise.prototype.del = // XXX legacy id:88
 Promise.prototype["delete"] = function (key) {
     return this.dispatch("delete", [key]);
-};
+
 
 /**
  * Invokes a method in a future turn.
@@ -19595,13 +19612,22 @@ Promise.prototype["delete"] = function (key) {
  * @return promise for the return value
  */
 // bound locally because it is used by other methods
-Q.mapply = // XXX As proposed by "Redsandro"
+Q.mapply = // XXX As proposed by "Redsandro" id:31
 Q.post = function (object, name, args) {
     return Q(object).dispatch("post", [name, args]);
-};
+// };
 
-Promise.prototype.mapply = // XXX As proposed by "Redsandro"
-Promise.prototype.post = function (name, args) {
+Promise.prototype.mapply = // XXX As proposed by "Redsandro" id:98
+P// Promise.prototype.post = function (name, args) {
+//     return this.dispatch("post", [name, args]);
+// };
+// *
+// Invokes a method in a future turn.
+// @param object    promise or immediate reference for target object
+// @param name      name of method to invoke
+// @param ...args   array of invocation arguments
+// @return promise for the return value
+romise.prototype.post = function (name, args) {
     return this.dispatch("post", [name, args]);
 };
 
@@ -19612,17 +19638,17 @@ Promise.prototype.post = function (name, args) {
  * @param ...args   array of invocation arguments
  * @return promise for the return value
  */
-Q.send = // XXX Mark Miller's proposed parlance
-Q.mcall = // XXX As proposed by "Redsandro"
+Q.send = // XXX Mark Miller's proposed parlance id:71
+Q.mcall = // XXX As proposed by "Redsandro" id:50
 Q.invoke = function (object, name /*...args*/) {
     return Q(object).dispatch("post", [name, array_slice(arguments, 2)]);
 };
 
-Promise.prototype.send = // XXX Mark Miller's proposed parlance
-Promise.prototype.mcall = // XXX As proposed by "Redsandro"
+Promise.prototype.send = // XXX Mark Miller's proposed parlance id:89
+Promise.prototype.mcall = // XXX As proposed by "Redsandro" id:32
 Promise.prototype.invoke = function (name /*...args*/) {
     return this.dispatch("post", [name, array_slice(arguments, 1)]);
-};
+
 
 /**
  * Applies the promised function in a future turn.
@@ -19631,7 +19657,7 @@ Promise.prototype.invoke = function (name /*...args*/) {
  */
 Q.fapply = function (object, args) {
     return Q(object).dispatch("apply", [void 0, args]);
-};
+// };
 
 Promise.prototype.fapply = function (args) {
     return this.dispatch("apply", [void 0, args]);
@@ -19851,12 +19877,12 @@ Promise.prototype.allSettled = function () {
  * given promise is rejected
  * @returns a promise for the return value of the callback
  */
-Q.fail = // XXX legacy
+Q.fail = // XXX legacy id:99
 Q["catch"] = function (object, rejected) {
     return Q(object).then(void 0, rejected);
 };
 
-Promise.prototype.fail = // XXX legacy
+Promise.prototype.fail = // XXX legacy id:72
 Promise.prototype["catch"] = function (rejected) {
     return this.then(void 0, rejected);
 };
@@ -19889,20 +19915,25 @@ Promise.prototype.progress = function (progressed) {
  * @returns a promise for the resolution of the given promise when
  * ``fin`` is done.
  */
-Q.fin = // XXX legacy
+Q.fin = // XXX legacy id:51
+* ``fin`` is done.
 Q["finally"] = function (object, callback) {
     return Q(object)["finally"](callback);
 };
 
-Promise.prototype.fin = // XXX legacy
-Promise.prototype["finally"] = function (callback) {
-    callback = Q(callback);
-    return this.then(function (value) {
-        return callback.fcall().then(function () {
-            return value;
-        });
-    }, function (reason) {
-        // TODO attempt to recycle the rejection with "this".
+Promise.prototype.fin = // XXX legacy id:90
+
+        // TODO //         return callback.fcall().then(function () {
+//             throw reason;
+//         });
+//     });
+// };
+// *
+// Terminates a chain of promises, forcing rejections to be
+// thrown as exceptions.
+// @param {Any*} promise at the end of a chain of promises
+// @returns nothing
+attempt to recycle the rejection with "this". id:33
         return callback.fcall().then(function () {
             throw reason;
         });
@@ -20105,12 +20136,28 @@ Promise.prototype.nbind = function (/*thisp, ...args*/) {
  * will be provided by Q and appended to these arguments.
  * @returns a promise for the value or error
  */
-Q.nmapply = // XXX As proposed by "Redsandro"
+Q.nmapply = // XXX As proposed by "Redsandro" id:100
 Q.npost = function (object, name, args) {
     return Q(object).npost(name, args);
 };
 
-Promise.prototype.nmapply = // XXX As proposed by "Redsandro"
+Promise.prototype.nmapply = // XXX As proposed by "Redsandro"// Promise.prototype.npost = function (name, args) {
+//     var nodeArgs = array_slice(args || []);
+//     var deferred = defer();
+//     nodeArgs.push(deferred.makeNodeResolver());
+//     this.dispatch("post", [name, nodeArgs]).fail(deferred.reject);
+//     return deferred.promise;
+// };
+// *
+// Calls a method of a Node-style object that accepts a Node-style
+// callback, forwarding the given variadic arguments, plus a provided
+// callback argument.
+// @param object an object that has the named method
+// @param {String} name name of the method of object
+// @param ...args arguments to pass to the method; the callback will
+// be provided by Q and appended to these arguments.
+// @returns a promise for the value or error
+ id:73
 Promise.prototype.npost = function (name, args) {
     var nodeArgs = array_slice(args || []);
     var deferred = defer();
@@ -20129,8 +20176,8 @@ Promise.prototype.npost = function (name, args) {
  * be provided by Q and appended to these arguments.
  * @returns a promise for the value or error
  */
-Q.nsend = // XXX Based on Mark Miller's proposed "send"
-Q.nmcall = // XXX Based on "Redsandro's" proposal
+Q.nsend = // XXX Based on Mark Miller's proposed "send" id:52
+Q.nmcall = // XXX Based on "Redsandro's" proposal id:91
 Q.ninvoke = function (object, name /*...args*/) {
     var nodeArgs = array_slice(arguments, 2);
     var deferred = defer();
@@ -20139,15 +20186,16 @@ Q.ninvoke = function (object, name /*...args*/) {
     return deferred.promise;
 };
 
-Promise.prototype.nsend = // XXX Based on Mark Miller's proposed "send"
-Promise.prototype.nmcall = // XXX Based on "Redsandro's" proposal
+Promise.prototype.nsend = // XXX Based on Mark Miller's p// };
+roposed "send" id:34
+Promise.prototype.nmcall = // XXX Based on "Redsandro's" proposal id:101
 Promise.prototype.ninvoke = function (name /*...args*/) {
     var nodeArgs = array_slice(arguments, 1);
     var deferred = defer();
     nodeArgs.push(deferred.makeNodeResolver());
     this.dispatch("post", [name, nodeArgs]).fail(deferred.reject);
     return deferred.promise;
-};
+
 
 /**
  * If a function would like to support both Node continuation-passing-style and
@@ -21444,10 +21492,11 @@ exports.toJSON = function(){
  * Check if `obj` is a host object,
  * we don't want to serialize these :)
  *
- * TODO: future proof, move to compoent land
+ * TODO: future proof, move to compoent land id:74
  *
  * @param {Object} obj
- * @return {Boolean}
+ ** 
+ @return {Boolean}
  * @api private
  */
 
@@ -22149,7 +22198,7 @@ SwaggerUi.Models.ApiKeyAuthModel = Backbone.Model.extend({
 });
 'use strict';
 
-SwaggerUi.Views.ApiKeyAuthView = Backbone.View.extend({ // TODO: append this to global SwaggerUi
+SwaggerUi.Views.ApiKeyAuthView = Backbone.View.extend({ // TODO: append this to global SwaggerUi id:53
 
     events: {
         'change .input_apiKey_entry': 'apiKeyChange'
@@ -23156,7 +23205,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
   },
 
   // Note: copied from CoffeeScript compiled file
-  // TODO: refactor
+  // TODO: refactor id:92
   render: function() {
     var a, auth, auths, code, contentTypeModel, isMethodSubmissionSupported, k, key, l, len, len1, len2, len3, len4, m, modelAuths, n, o, p, param, q, ref, ref1, ref2, ref3, ref4, ref5, responseContentTypeView, responseSignatureView, schema, schemaObj, scopeIndex, signatureModel, statusCode, successResponse, type, v, value, produces, isXML, isJSON;
     isMethodSubmissionSupported = jQuery.inArray(this.model.method, this.model.supportedSubmitMethods()) >= 0;
@@ -23440,8 +23489,9 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
   },
 
   // Note: copied from CoffeeScript compiled file
-  // TODO: redactor
-  submitOperation: function(e) {
+  // TODO: redactor id:35
+ // Note: copied from CoffeeScript compiled file
+ submitOperation: function(e) {
     var error_free, form, isFileUpload, map, opts;
     if (e !== null) {
       e.preventDefault();
@@ -23648,7 +23698,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
 
   // Adapted from http://stackoverflow.com/a/2893259/454004
   // Note: directly ported from CoffeeScript
-  // TODO: Cleanup CoffeeScript artifacts
+  // TODO: Cleanup CoffeeScript artifacts id:102
   formatXml: function(xml) {
     var contexp, fn, formatted, indent, l, lastType, len, lines, ln, pad, reg, transitions, wsexp;
     reg = /(>)(<)(\/*)/g;
@@ -24053,7 +24103,8 @@ SwaggerUi.Views.ParameterView = Backbone.View.extend({
                         disable_edit_json:true,
                         iconlib: 'swagger' });
       // This is so that the signature can send back the sample to the json editor
-      // TODO: SignatureView should expose an event "onSampleClicked" instead
+      // TODO: SignatureView should expose an event// This is so that the signature can send back the sample to the json editor
+ "onSampleClicked" instead id:75
       signatureModel.jsonEditor = this.model.jsonEditor;
       $('.body-textarea', $self).hide();
       $('.editor_holder', $self).show();
@@ -25320,7 +25371,8 @@ SwaggerUi.Views.SignatureView = Backbone.View.extend({
     // Fix for bug in IE 10/11 which causes placeholder text to be copied to "value"
     if ($.trim(textArea.val()) === '' || textArea.prop('placeholder') === textArea.val()) {
       textArea.val(val);
-      // TODO move this code outside of the view and expose an event instead
+      // TODO move this code outside of the view and e//       textArea.val(val);
+xpose an event instead id:54
       if( this.model.jsonEditor && this.model.jsonEditor.isEnabled()){
         this.model.jsonEditor.setValue(JSON.parse(this.model.sampleJSON));
       }

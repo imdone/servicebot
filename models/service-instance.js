@@ -64,7 +64,7 @@ ServiceInstance.prototype.createPayPlan = async function (plan = null) {
     }
     plan.statement_descriptor = plan.statement_descriptor.substring(0, 22);
     try {
-        //TODO: Maybe just always create the new plan. This may be troublesome in the future - try catch bad too...
+        //TODO: Maybe just always create the new plan. This may be troublesome in the future - try catch bad too... id:23
         this.data.payment_plan = await Stripe().connection.plans.retrieve(plan.id);
     } catch (error) {
         try {
@@ -198,7 +198,7 @@ let getAllAwaitingCharges = function (callback) {
 };
 
 
-//TODO: The post response is null. maybe make it more meaningful.
+//TODO: The post response is null. maybe make it more meaningful. id:17
 let approveAllCharges = function (callback) {
     let self = this;
     self.getAllAwaitingCharges(function (all_charges) {

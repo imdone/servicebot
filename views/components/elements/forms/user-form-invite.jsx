@@ -88,7 +88,7 @@ class UserFormInvite extends React.Component {
         if (this.state.loading) {
             return ( <Load/> );
         } else {
-            //TODO: Add validation functions and pass into DataForm as props
+            //TODO: Add validation functions and pass into DataForm as props id:78
             return (
                 <div className="sign-up">
                     {getAlerts()}

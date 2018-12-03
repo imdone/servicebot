@@ -55,7 +55,7 @@ class DeleteUserForm extends React.Component {
                 </div>
             );
         }else{
-            //TODO: Add validation functions and pass into DataForm as props
+            //TODO: Add validation functions and pass into DataForm as props id:55
             return (
                 <div className="suspend-user-form">
                     <div className="p-20">

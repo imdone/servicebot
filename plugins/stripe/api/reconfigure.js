@@ -64,8 +64,8 @@ module.exports = function(router, knex, stripe) {
                                         return resolve(true);
                                     }
                                 } else {
-                                    //TODO: need to save Stripe account info in the database to ensure rolled keys or diactivated account
-                                    //If the old account is not found, forget about migration and update
+                                    //TODO: need to save Stripe account info in the database to ensure rolled keys or diactivated account id:24
+                                    // If the old account is not found, forget about migration and update
                                     console.log('Potential rolled keys. No old Stripe account found. Continue without migration...');
                                     return resolve(false);
                                 }
@@ -221,8 +221,8 @@ module.exports = function(router, knex, stripe) {
                     //Get upcoming invoices for every user
                     return resolve(do_migration);
                 } else {
-                    //TODO: importing the customer invoices.
-                    //console.log('Bypassing upcoming invoice creation...');
+                    //TODO: importing the customer invoices. id:18
+                    // console.log('Bypassing upcoming invoice creation...');
                     return resolve(do_migration);
                 }
             });
