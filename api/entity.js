@@ -7,6 +7,7 @@ let store = require("../config/redux/store");
 //TODO : Strip password field from getters id:19
 // todo - entity posting should have correct error handling, response should tell user what is wrong like if missing column
 // todo - generify the method we use to "find all" and reduce code duplication in the getters
+// - <https://github.com/imdone/servicebot/issues/2>
 module.exports = function (router, model, resourceName, userCorrelator) {
     let references = model.references || [];
 
