@@ -94,7 +94,7 @@ class UserFormRegister extends React.Component {
         } else if (this.state.success) {
             return browserHistory.push('/my-services');
         } else {
-            //TODO: Add validation functions and pass into DataForm as props
+            //TODO: Add validation functions and pass into DataForm as props id:57
             return (
                 <div className="sign-up">
                     <DataForm validators={this.getValidators()} handleResponse={this.handleResponse} url={this.state.url} method={'POST'}>

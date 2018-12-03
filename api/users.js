@@ -71,8 +71,8 @@ module.exports = function (router, passport) {
         })
 
     });
-    //TODO better error handling
-    //TODO use next
+    //TODO better error handling id:1
+    //TODO use next id:4
     router.post("/users/register", function (req, res, next) {
         let token = req.query.token;
         if (token) {
@@ -143,7 +143,7 @@ module.exports = function (router, passport) {
     });
 
 
-    //TODO add the registration url to the email
+    //TODO add the registration url to the email id:20
     router.post('/users/invite', auth(), function (req, res, next) {
         function reinviteUser(user){
 

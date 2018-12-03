@@ -16,7 +16,7 @@ let swaggerJSON = {...require("../api-docs/api-entity-paths.json"), ...require("
  */
 let isAuthorized = function (user, permission, bypassPermissions, callback){
 
-    //TODO: clean this up so hasPermission can be passed multiple roles
+    //TODO: clean this up so hasPermission can be passed multiple roles id:61
     Role.findOne("id", user.get("role_id"), function(role){
         role.getPermissions(function(permissions){
             let status = permissions.some(p => p.data.permission_name == permission || !permission);
@@ -78,7 +78,7 @@ let auth = function(permission=null, model=null, correlation_id="user_id", bypas
             else{
                 if(status){
                     if (model) {
-                        //TODO be able to handle other ids, not just 'id'
+                        //TODO be able to handle other ids, not just 'id' id:40
                         let id = req.params.id;
                         model.findOne("id", id, function (result) {
                             console.log("correlation id: " + correlation_id + " " + req.user.get("id"));

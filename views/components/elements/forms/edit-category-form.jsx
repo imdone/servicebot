@@ -50,7 +50,7 @@ class EditCategoryForm extends React.Component {
                 </div>
             );
         }else{
-            //TODO: Add validation functions and pass into DataForm as props
+            //TODO: Add validation functions and pass into DataForm as props id:94
             return (
                 <div className="invite-user-form">
                     <DataForm handleResponse={this.handleResponse} url={this.state.url} method={'PUT'}>

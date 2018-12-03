@@ -13,8 +13,8 @@ let store = require("../config/redux/store");
 
 module.exports = function(app, passport) {
 
-    //TODO: buff up security so each user has their own secret key
-    //TODO: security key..... no hardcoded strings plzzzz (along with the comment above)
+    //TODO: buff up security so each user has their own secret key id:0
+    //TODO: security key..... no hardcoded strings plzzzz (along with the comment above) id:3
     app.post('/auth/token', passport.authenticate('local-login', {session:false}), function(req, res) {
         console.log(req.user);
         let token = jwt.sign({  uid: req.user.data.id }, process.env.SECRET_KEY, { expiresIn: '3h' });

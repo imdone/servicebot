@@ -12,7 +12,7 @@ if(!Object.values){
 
 class Inputs extends React.Component {
 
-    //TODO: make default value get set in dataform on mounting component
+    //TODO: make default value get set in dataform on mounting component id:58
     constructor(props){
         super(props);
         this.state = {type: this.props.type, value: null};
@@ -157,7 +157,7 @@ class Inputs extends React.Component {
                 </div>
             );
         }else if(type == "price"){
-            //TODO: Handle on load, change the price mask for editing forms
+            //TODO: Handle on load, change the price mask for editing forms id:97
             return(
                 <div className={`form-group ${warning ? 'has-warning' : ''} ${error ? 'has-error' : ''} ${type == 'hidden' ? 'hidden' : ''}`}>
                     {label && <label className="control-label text-capitalize">{label}</label>}
